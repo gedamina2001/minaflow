@@ -1,0 +1,10 @@
+{
+  "css.customData": [".vscode/tailwind-css-data.json"],
+  "css.lint.propertyIgnoredDueToDisplay": "ignore",
+  "files.associations": {
+    "**/frontend/styles.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.configFile": {
+    "frontend/styles.css": ["frontend/**", "public/**"]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "minaflow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "predev": "npm run build",
+    "dev": "concurrently -k -n css,server \"npm run css:watch\" \"node --env-file-if-exists=.env --watch server/index.js\"",
+    "build": "tailwindcss -i ./frontend/styles.css -o ./public/styles.css --minify",
+    "css:watch": "tailwindcss -i ./frontend/styles.css -o ./public/styles.css --watch",
+    "prestart": "npm run build",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "test": "node --test server/tests/*.test.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.0.0",
+    "express-rate-limit": "^8.0.0",
+    "helmet": "^8.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "concurrently": "^10.0.7",
+    "supertest": "^7.0.0",
+    "tailwindcss": "^4.3.5"
+  }
+}
